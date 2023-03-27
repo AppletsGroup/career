@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import { Toaster } from 'react-hot-toast'
 import ResumesPage from './pages/ResumesPage/ResumesPage'
 import ResumePage from './pages/ResumePage/ResumePage'
+import ResumeFormPage from './pages/ResumeFormPage/ResumeFormPage'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -16,6 +17,9 @@ const router = createBrowserRouter(
       <Route
         path="/resume/:id"
         element={<ResumePage />} />
+      <Route
+        path="/resume/new"
+        element={<ResumeFormPage />} />
     </Route>
   )
 )
