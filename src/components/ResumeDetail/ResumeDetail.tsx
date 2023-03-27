@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-// The ResumeDetail component contains information such as the summary, contact information, and links to social media profiles. 
+// The ResumeDetail component contains information such as the summary, contact information, and links to social media profiles.
 export const ResumeDetail: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-8">
@@ -17,9 +17,12 @@ export const ResumeDetail: React.FC = () => {
         <div className="w-full lg:w-1/3 px-4 mb-8">
           <h2 className="text-lg font-bold mb-2">Contact</h2>
           <p className="text-gray-400 leading-loose">
-            123 Main St<br />
-            Anytown, USA 12345<br />
-            (123) 456-7890<br />
+            123 Main St
+            <br />
+            Anytown, USA 12345
+            <br />
+            (123) 456-7890
+            <br />
             email@example.com
           </p>
         </div>
@@ -27,13 +30,16 @@ export const ResumeDetail: React.FC = () => {
           <h2 className="text-lg font-bold mb-2">Social Media</h2>
           <ul className="list-none">
             <li>
-              <a href="#" className="text-gray-400 hover:text-white">
-                <i className="fab fa-github mr-2"></i>GitHub
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white">
+                <i className="fab fa-github mr-2"></i>
+                GitHub
               </a>
             </li>
           </ul>
         </div>
-          </div>
-        </div>)
+      </div>
+    </div>
+  )
 }
-      

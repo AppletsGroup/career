@@ -1,8 +1,8 @@
-import React from 'react';
-import { Resume } from '../../types';
+import React from 'react'
+import { type Resume } from '../../types'
 
 interface Props {
-  resume: Resume;
+  resume: Resume
 }
 
 const ResumeCard: React.FC<Props> = ({ resume }) => {
@@ -25,7 +25,7 @@ const ResumeCard: React.FC<Props> = ({ resume }) => {
         </dl>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ResumeCard;
+export default ResumeCard

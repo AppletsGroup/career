@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 
 interface Props {
-  name: string;
-  title: string;
-  email: string;
-  phone: string;
-  location: string;
+  name: string
+  title: string
+  email: string
+  phone: string
+  location: string
 }
 
 export const ResumeHeader: React.FC<Props> = ({ name, title, email, phone, location }) => {
@@ -21,5 +21,5 @@ export const ResumeHeader: React.FC<Props> = ({ name, title, email, phone, locat
         <p className="text-lg">{location}</p>
       </div>
     </div>
-  );
-};
+  )
+}

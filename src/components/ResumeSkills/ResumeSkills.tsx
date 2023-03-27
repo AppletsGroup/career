@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 export const ResumeSkills: React.FC = () => {
   return (
@@ -10,5 +10,5 @@ export const ResumeSkills: React.FC = () => {
         <li>Skill 3</li>
       </ul>
     </div>
-  );
-};
+  )
+}

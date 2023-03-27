@@ -1,8 +1,8 @@
-import React from 'react';
-import { Education } from '../../types';
+import React from 'react'
+import { type Education } from '../../types'
 
 interface Props {
-  education: Education[];
+  education: Education[]
 }
 
 export const ResumeEducation: React.FC<Props> = ({ education }) => {
@@ -12,8 +12,10 @@ export const ResumeEducation: React.FC<Props> = ({ education }) => {
         <h2 className="text-2xl font-bold leading-tight text-gray-100">Education</h2>
         <div className="mt-4 space-y-4">
           {education.map((edu) => (
-            <div key={edu.institution} className="flex">
-{/*               <div className="flex-shrink-0">
+            <div
+              key={edu.institution}
+              className="flex">
+              {/*               <div className="flex-shrink-0">
                 <div className="flex items-center justify-center h-12 w-12 rounded-md bg-gray-800 text-white">
                   <edu.icon className="h-6 w-6" aria-hidden="true" />
                 </div>
@@ -28,5 +30,5 @@ export const ResumeEducation: React.FC<Props> = ({ education }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
