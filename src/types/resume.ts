@@ -52,7 +52,7 @@ export interface Resume {
   name?: string // The full name of the person
   title: string // The professional title or position of the person
   summary: string // A brief summary or objective statement
-  contact?: Contact
+  contact: Contact
   skills: string[] // An array of the person's skills
   workExperiences: WorkExperience[]
   education: Education[]

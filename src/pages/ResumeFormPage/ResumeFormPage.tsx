@@ -12,6 +12,7 @@ import SkillsForm from './components/SkillsForm'
 import WorkExperiencesForm from './components/WorkExperiencesForm'
 
 const ResumeFormPage = () => {
+  const [name, setName] = useState<string>('')
   const [title, setTitle] = useState<string>('')
   const [summary, setSummary] = useState<string>('')
   const [workExperiences, setWorkExperiences] = useState<WorkExperience[]>([])
@@ -20,7 +21,6 @@ const ResumeFormPage = () => {
   const [licences, setLicences] = useState<Licence[]>([])
   const [awards, setAwards] = useState<string[]>([])
   const { resumeId } = useParams<{ resumeId: string }>()
-  const [name, setName] = useState<string>('')
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -33,9 +33,9 @@ const ResumeFormPage = () => {
         setWorkExperiences(resumeStore.workExperiences)
         setEducation(resumeStore.education)
         setSkills(resumeStore.skills)
-        setAwards(resumeStore.licences)
+        setLicences(resumeStore.licences ?? [])
         setAwards(resumeStore.awards)
-        setName(resumeStore.name)
+        setName(resumeStore.name ?? '')
       }
     }
 
@@ -74,7 +74,7 @@ const ResumeFormPage = () => {
 
       toast.success('update Resume success')
 
-      navigate(`/resume/${resumeId}`)
+      navigate(`/resumes/${resumeId}`)
     } else {
       const post2Create: Post = {
         title,

@@ -9,8 +9,9 @@ export default function MobileNavigation ({ onSelectMenu }: { onSelectMenu: () =
   const navigate = useNavigate()
 
   const menuItems = [
+    { path: '/', label: 'Home' },
     { path: '/resumes', label: 'Resumes' },
-    { path: '/resume/new', label: 'Create Resume' }
+    { path: '/resumes/new', label: 'Create Resume' }
   ]
 
   const logOut = () => {

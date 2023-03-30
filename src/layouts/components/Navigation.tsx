@@ -3,7 +3,7 @@ import CurrentUser from '../../components/CurrentUser/CurrentUser'
 
 const navLinks = [
   { to: '/resumes', text: 'Resumes' },
-  { to: '/resume/new', text: 'Create Resume' }
+  { to: '/resumes/new', text: 'Create Resume' }
 ]
 
 export default function Navigation () {

@@ -29,12 +29,13 @@ const ResumesPage = () => {
 
   const resumes: Resume[] = posts.map((postItem: Post) => {
     const { id, title, content, store } = postItem
-    const { workExperiences, education, skills, awards } = store
+    const { workExperiences, education, skills, awards, contact } = store
 
     return {
       id,
       title: title ?? '',
       summary: content ?? '',
+      contact,
       workExperiences,
       education,
       skills,

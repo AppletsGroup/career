@@ -9,7 +9,7 @@ interface Props {
 const ResumeCard: React.FC<Props> = ({ resume }) => {
   return (
     <Link
-      to={`/resume/${resume.id}`}
+      to={`/resumes/${resume.id}`}
       className="bg-white shadow-lg rounded-lg overflow-hidden">
       <div className="px-4 py-5 sm:px-6">
         <h3 className="text-lg leading-6 font-medium text-gray-900">{resume.title}</h3>
