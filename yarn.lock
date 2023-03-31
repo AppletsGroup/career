@@ -3327,7 +3327,7 @@ node-releases@^2.0.8:
 
 nonepub@^0.1.4:
   version "0.1.4"
-  resolved "https://registry.yarnpkg.com/nonepub/-/nonepub-0.1.4.tgz#6c550480da360fca04345b677c241b7f5e871940"
+  resolved "https://registry.npmmirror.com/nonepub/-/nonepub-0.1.4.tgz#6c550480da360fca04345b677c241b7f5e871940"
   integrity sha512-MStFMvWhEB1i8zkemVePIaAevDhLl6JHG0vphhinXPs0Yp6HkN12BTIeFv8Bis4BB3A1WvMA7+abgUlQ8FACnw==
   dependencies:
     "@ant-design/colors" "^6.0.0"
@@ -3864,7 +3864,7 @@ raf-schd@^4.0.3:
 
 react-dom@^18.2.0:
   version "18.2.0"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.2.0.tgz#22aaf38708db2674ed9ada224ca4aa708d821e3d"
+  resolved "https://registry.npmmirror.com/react-dom/-/react-dom-18.2.0.tgz#22aaf38708db2674ed9ada224ca4aa708d821e3d"
   integrity sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==
   dependencies:
     loose-envify "^1.1.0"
@@ -3961,7 +3961,7 @@ react-spring@^9.2.4:
 
 react@^18.2.0:
   version "18.2.0"
-  resolved "https://registry.yarnpkg.com/react/-/react-18.2.0.tgz#555bd98592883255fa00de14f1151a917b5d77d5"
+  resolved "https://registry.npmmirror.com/react/-/react-18.2.0.tgz#555bd98592883255fa00de14f1151a917b5d77d5"
   integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==
   dependencies:
     loose-envify "^1.1.0"

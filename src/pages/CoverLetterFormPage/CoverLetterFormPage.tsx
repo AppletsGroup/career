@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useMemo } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { createPost, getPost, updatePost } from 'applet-apis'
 import {
@@ -22,7 +22,6 @@ export default function CoverLetterFormPage () {
   const [loaded, setLoaded] = useState(false)
   const titleInputRef = useRef<HTMLInputElement>(null)
   const [title, setTitle] = useState('')
-  const [content, setContent] = useState('')
   const [resetEditorContent, setResetEditorContent] = useState(false)
   const isMobile = useIsMobile()
 
@@ -31,26 +30,28 @@ export default function CoverLetterFormPage () {
 
   const editorPreset = isMobile ? mobilePreset : defaultPreset
 
-  const options = editorPreset(
-    {
-      type: 'html',
-      value: content || ' '
-    },
-    {
-      uploader: async (file) => {
-        return await new Promise((resolve, reject) => {
-          setTimeout(() => {
-            const uri = URL.createObjectURL(file)
-            console.log('upload uri', uri)
-            resolve({
-              src: uri
-            })
-          }, 4000)
-        })
+  const options = useMemo(() => {
+    return editorPreset(
+      {
+        type: 'html',
+        value: '<p></p>'
       },
-      readonly: false
-    }
-  )
+      {
+        uploader: async (file) => {
+          return await new Promise((resolve, reject) => {
+            setTimeout(() => {
+              const uri = URL.createObjectURL(file)
+              console.log('upload uri', uri)
+              resolve({
+                src: uri
+              })
+            }, 4000)
+          })
+        },
+        readonly: false
+      }
+    )
+  }, [isMobile])
   const editor = useEditor(options)
 
   useEffect(() => {
@@ -58,7 +59,7 @@ export default function CoverLetterFormPage () {
       const res = await getPost(Number(coverLetterId))
       if (res) {
         setTitle(res.title ?? '')
-        setContent(res.content || '')
+        editor.replaceContent(res.content || '<p></p>')
       }
       setLoaded(true)
     }
