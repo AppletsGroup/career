@@ -3325,10 +3325,10 @@ node-releases@^2.0.8:
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-2.0.10.tgz#c311ebae3b6a148c89b1813fd7c4d3c024ef537f"
   integrity sha512-5GFldHPXVG/YZmFzJvKK2zDSzPKhEp0+ZR5SVaoSag9fsL5YgHbUHDfnG5494ISANDcK4KwPXAx2xqVEydmd7w==
 
-nonepub@^0.1.4:
-  version "0.1.4"
-  resolved "https://registry.npmmirror.com/nonepub/-/nonepub-0.1.4.tgz#6c550480da360fca04345b677c241b7f5e871940"
-  integrity sha512-MStFMvWhEB1i8zkemVePIaAevDhLl6JHG0vphhinXPs0Yp6HkN12BTIeFv8Bis4BB3A1WvMA7+abgUlQ8FACnw==
+nonepub@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/nonepub/-/nonepub-0.2.0.tgz#4fbbd7dc1a26ed07f5392141125507b565283cc8"
+  integrity sha512-xEOMRM542NnDpytW1t0Q6dSVTxbYs6qN48SdGKSr4FV992iKn9lI4x96DvaMm5O42jE5EZY/ict+/9yKXsMHhw==
   dependencies:
     "@ant-design/colors" "^6.0.0"
     "@popperjs/core" "^2.9.2"
