@@ -11,7 +11,7 @@ import { type Post } from 'applet-types'
 import toast from 'react-hot-toast'
 import NonePubEditor from '../../components/NonePubEditor/NonePubEditor'
 import { useAppDispatch, post } from 'applet-store'
-import { useNavigation } from '../../layouts/Navigation'
+import { useApplet } from 'applet-shell'
 
 const { postAdded } = post
 export default function CoverLetterFormPage () {
@@ -23,10 +23,10 @@ export default function CoverLetterFormPage () {
   const titleInputRef = useRef<HTMLInputElement>(null)
   const [title, setTitle] = useState('')
   const [resetEditorContent, setResetEditorContent] = useState(false)
-  const isMobile = useIsMobile()
-
-  const navigation = useNavigation()
   const [hasConfigNavigation, setHasConfigNavigation] = useState(false)
+
+  const isMobile = useIsMobile()
+  const applet = useApplet()
 
   const editorPreset = isMobile ? mobilePreset : defaultPreset
 
@@ -72,9 +72,8 @@ export default function CoverLetterFormPage () {
   }, [coverLetterId])
 
   useEffect(() => {
-    if (!hasConfigNavigation && navigation) {
-      console.log('yeah...')
-      navigation?.setHeaderRightActions((
+    if (!hasConfigNavigation && applet) {
+      applet?.setHeaderRightActions((
         <Button
           onClick={handleConfirmSave}
           className="ml-2">
@@ -83,7 +82,7 @@ export default function CoverLetterFormPage () {
       ))
       setHasConfigNavigation(true)
     }
-  }, [navigation])
+  }, [applet])
 
   if (!loaded) {
     return (

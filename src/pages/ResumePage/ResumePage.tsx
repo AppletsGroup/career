@@ -7,23 +7,22 @@ import EducationDetail from './components/EducationDetail'
 import WorkExperienceDetail from './components/WorkExperienceDetail'
 import SkillsDetail from './components/SkillsDetail'
 import ContactDetail from './components/ContactDetail'
-import { useNavigation } from '../../layouts/Navigation'
 import HeaderRightAction from './components/HeaderRigthAction'
+import { useApplet } from 'applet-shell'
 // import EditButton from './components/EditButton'
 
 const ResumePage = () => {
   const { resumeId } = useParams<{ resumeId: string }>()
   const [resume, setResume] = React.useState<Resume | null>(null)
-  const navigation = useNavigation()
+  const applet = useApplet()
   const [hasConfigNavigation, setHasConfigNavigation] = useState(false)
 
   useEffect(() => {
-    if (!hasConfigNavigation && navigation && resumeId) {
-      console.log('yeah...')
-      navigation?.setHeaderRightActions(<HeaderRightAction resumeId={resumeId} />)
+    if (!hasConfigNavigation && applet && resumeId) {
+      applet?.setHeaderRightActions(<HeaderRightAction resumeId={resumeId} />)
       setHasConfigNavigation(true)
     }
-  }, [navigation])
+  }, [applet])
 
   useEffect(() => {
     const loadPost = async () => {

@@ -7,18 +7,27 @@ import { Toaster } from 'react-hot-toast'
 import ResumesPage from './pages/ResumesPage/ResumesPage'
 import ResumePage from './pages/ResumePage/ResumePage'
 import ResumeFormPage from './pages/ResumeFormPage/ResumeFormPage'
-import DefaultLayout from './layouts/DefaultLayout'
 import LandingPage from './pages/LandingPage/LandingPage'
-import SubPageLayout from './layouts/SubPageLayout'
-import NavigationProvider from './layouts/Navigation'
+import { AppletProvider, DefaultLayout, SubPageLayout } from 'applet-shell'
 import CoverLetterFormPage from './pages/CoverLetterFormPage/CoverLetterFormPage'
 import CoverLettersPage from './pages/CoverLettersPage/CoverLettersPage'
 import CoverLetterPage from './pages/CoverLetterPage/CoverLetterPage'
 
+const menus = [
+  { path: '/', label: 'Home' },
+  { path: '/resumes', label: 'Resumes' },
+  { path: '/resumes/new', label: 'Create Resume' }
+]
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route >
-      <Route element={<DefaultLayout />}>
+      <Route
+        element={(
+          <DefaultLayout
+            menus={menus}
+            title={'Career'}/>
+      )}>
         <Route
           path="/"
           element={<LandingPage />} />
@@ -55,13 +64,12 @@ const router = createBrowserRouter(
 
 const App: React.FC = () => {
   return (
-
-    <NavigationProvider>
+    <AppletProvider>
       <Provider store={appletStore}>
         <RouterProvider router={router} />
         <Toaster />
       </Provider>
-    </NavigationProvider>
+    </AppletProvider>
   )
 }
 
