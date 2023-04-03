@@ -11,6 +11,8 @@ import { getPost } from 'applet-apis'
 import { post, useAppDispatch, useAppSelector } from 'applet-store'
 import { Dropdown } from 'applet-design'
 import { EllipsisHorizontalIcon } from '@heroicons/react/24/solid'
+import HeaderRightAction from './components/HeaderRigthAction'
+import { useApplet } from 'applet-shell'
 
 const { initCurrentPost } = post
 
@@ -22,9 +24,19 @@ export default function CoverLetterPage() {
   const [content, setContent] = useState('')
   const { isAuthed, profile } = useAppSelector(state => state.user)
   const { currentPost } = useAppSelector(state => state.post)
-  const isAuthor = isAuthed && (profile != null) && profile.id === currentPost?.authorId
+  const isAuthor = isAuthed && profile !== null && profile.id === currentPost?.authorId
 
   const dispatch = useAppDispatch()
+
+  const applet = useApplet()
+  const [hasConfigNavigation, setHasConfigNavigation] = useState(false)
+
+  useEffect(() => {
+    if (!hasConfigNavigation && applet && coverLetterId) {
+      applet?.setHeaderRightActions(<HeaderRightAction coverLetterId={coverLetterId} />)
+      setHasConfigNavigation(true)
+    }
+  }, [applet])
 
   useEffect(() => {
     const loadPost = async () => {

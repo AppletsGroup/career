@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { useAppDispatch, useAppSelector, post } from 'applet-store'
 import { useReachBottom } from 'use-reach-bottom'
 import { type Post } from 'applet-types'
+import { Link } from 'react-router-dom'
 
 const { setCurrentPage, setContentTypes, loadPosts } = post
 
@@ -43,7 +44,9 @@ const CoverLettersPage = () => {
         <h2 className="text-3xl font-extrabold text-blue-500">Cover Letters</h2>
         <div className="mt-8 grid gap-8 lg:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1">
           {coverLetters.map((coverLetter) => (
-            <div key={coverLetter.id}>
+            <Link
+              key={coverLetter.id}
+              to={`/coverletters/${coverLetter.id}`}>
               {/* cover letter item detail */}
               <div className="bg-white shadow overflow-hidden sm:rounded-lg">
                 <div className="px-4 py-5 sm:px-6">
@@ -59,7 +62,7 @@ const CoverLettersPage = () => {
                   </dl>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

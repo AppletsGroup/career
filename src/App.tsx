@@ -16,7 +16,8 @@ import CoverLetterPage from './pages/CoverLetterPage/CoverLetterPage'
 const menus = [
   { path: '/', label: 'Home' },
   { path: '/resumes', label: 'Resumes' },
-  { path: '/resumes/new', label: 'Create Resume' }
+  { path: '/resumes/new', label: 'Create Resume' },
+  { path: '/coverletters', label: 'Cover Letters' }
 ]
 
 const router = createBrowserRouter(
