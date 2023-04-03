@@ -2,7 +2,8 @@
 module.exports = {
   content: [
     './index.html',
-    './src/**/*.{js,ts,jsx,tsx}'
+    './src/**/*.{js,ts,jsx,tsx}',
+    './node_modules/applet-shell/dist/*.{js,jsx,ts,tsx,mjs}'
   ],
   theme: {
     extend: {}
