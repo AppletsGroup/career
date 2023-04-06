@@ -15,7 +15,7 @@ const CoverLettersPage = () => {
 
   useEffect(() => {
     applet?.setHeaderTitle('Cover Letters')
-    applet?.setHeaderRightActions((<Link to="/coverletters/new">Create</Link>))
+    applet?.setHeaderRightActions((<Link to="/coverletters/new">Add</Link>))
   }, [])
 
   useEffect(() => {

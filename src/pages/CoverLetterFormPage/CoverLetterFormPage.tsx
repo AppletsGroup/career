@@ -95,12 +95,6 @@ export default function CoverLetterFormPage () {
     const docTitle = titleInputRef.current?.value
     const shortContent = htmlString.replace(/<[^>]+>/g, '').substring(0, 100)
 
-    console.log({
-      htmlString,
-      docTitle,
-      shortContent
-    })
-
     if (coverLetterId != null) {
       await updatePost({
         title: docTitle,

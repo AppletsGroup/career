@@ -1,17 +1,17 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom'
 import { appletStore } from 'applet-store'
 import { Provider } from 'react-redux'
-
-import { Toaster } from 'react-hot-toast'
-import ResumesPage from './pages/ResumesPage/ResumesPage'
-import ResumePage from './pages/ResumePage/ResumePage'
-import ResumeFormPage from './pages/ResumeFormPage/ResumeFormPage'
-import LandingPage from './pages/LandingPage/LandingPage'
 import { AppletProvider, DefaultLayout, SubPageLayout } from 'applet-shell'
-import CoverLetterFormPage from './pages/CoverLetterFormPage/CoverLetterFormPage'
-import CoverLettersPage from './pages/CoverLettersPage/CoverLettersPage'
-import CoverLetterPage from './pages/CoverLetterPage/CoverLetterPage'
+import { Toaster } from 'react-hot-toast'
+import LandingPage from './pages/LandingPage/LandingPage'
+
+const CoverLetterPage = lazy(async () => await import('./pages/CoverLetterPage/CoverLetterPage'))
+const CoverLettersPage = lazy(async () => await import('./pages/CoverLettersPage/CoverLettersPage'))
+const CoverLetterFormPage = lazy(async () => await import('./pages/CoverLetterFormPage/CoverLetterFormPage'))
+const ResumeFormPage = lazy(async () => await import('./pages/ResumeFormPage/ResumeFormPage'))
+const ResumePage = lazy(async () => await import('./pages/ResumePage/ResumePage'))
+const ResumesPage = lazy(async () => await import('./pages/ResumesPage/ResumesPage'))
 
 const menus = [
   { path: '/', label: 'Home' },
@@ -67,7 +67,9 @@ const App: React.FC = () => {
   return (
     <AppletProvider>
       <Provider store={appletStore}>
-        <RouterProvider router={router} />
+        <Suspense fallback={<div></div>}>
+          <RouterProvider router={router} />
+        </Suspense>
         <Toaster />
       </Provider>
     </AppletProvider>
