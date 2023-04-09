@@ -17,7 +17,7 @@ const ResumesPage = () => {
       dispatch(setContentTypes(['RESUME']))
       void dispatch(loadPosts())
     }
-    if (posts === null || posts.length === 0) initData()
+    initData()
   }, [dispatch])
 
   useReachBottom(listRef, () => {

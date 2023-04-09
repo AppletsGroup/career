@@ -8,21 +8,12 @@ import WorkExperienceDetail from './components/WorkExperienceDetail'
 import SkillsDetail from './components/SkillsDetail'
 import ContactDetail from './components/ContactDetail'
 import HeaderRightAction from './components/HeaderRigthAction'
-import { useApplet } from 'applet-shell'
+import { PageHeader } from 'applet-shell'
 // import EditButton from './components/EditButton'
 
 const ResumePage = () => {
   const { resumeId } = useParams<{ resumeId: string }>()
   const [resume, setResume] = React.useState<Resume | null>(null)
-  const applet = useApplet()
-  const [hasConfigNavigation, setHasConfigNavigation] = useState(false)
-
-  useEffect(() => {
-    if (!hasConfigNavigation && applet && resumeId) {
-      applet?.setHeaderRightActions(<HeaderRightAction resumeId={resumeId} />)
-      setHasConfigNavigation(true)
-    }
-  }, [applet])
 
   useEffect(() => {
     const loadPost = async () => {
@@ -50,21 +41,26 @@ const ResumePage = () => {
   if (resume == null) return <></>
 
   return (
-    <div className="p-4">
-      <div className="mb-8">
-        <h1 className="text-4xl font-bold">{resume.name}</h1>
-        <p className="text-lg">{resume.title}</p>
-        <p className="text-lg">{resume.summary}</p>
+    <>
+      <PageHeader
+        headerTitle="Resume Detail"
+        headerRightActions={resumeId ? (<HeaderRightAction resumeId={resumeId} />) : <></>} />
+      <div className="p-4">
+        <div className="mb-8">
+          <h1 className="text-4xl font-bold">{resume.name}</h1>
+          <p className="text-lg">{resume.title}</p>
+          <p className="text-lg">{resume.summary}</p>
+        </div>
+
+        <ContactDetail contact={resume.contact} />
+        <SkillsDetail skills={resume.skills} />
+        <WorkExperienceDetail workExperiences={resume.workExperiences} />
+        <EducationDetail educations={resume.education} />
+        <AwardsDetail awards={resume.awards} />
+
+        {/* {resumeId && (<EditButton resumeId={resumeId} />)} */}
       </div>
-
-      <ContactDetail contact={resume.contact} />
-      <SkillsDetail skills={resume.skills} />
-      <WorkExperienceDetail workExperiences={resume.workExperiences} />
-      <EducationDetail educations={resume.education} />
-      <AwardsDetail awards={resume.awards} />
-
-      {/* {resumeId && (<EditButton resumeId={resumeId} />)} */}
-    </div>
+    </>
   )
 }
 

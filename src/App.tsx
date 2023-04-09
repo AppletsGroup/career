@@ -3,7 +3,6 @@ import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } 
 import { appletStore } from 'applet-store'
 import { Provider } from 'react-redux'
 import { AppletProvider, DefaultLayout, SubPageLayout } from 'applet-shell'
-import { Toaster } from 'react-hot-toast'
 import LandingPage from './pages/LandingPage/LandingPage'
 
 const CoverLetterPage = lazy(async () => await import('./pages/CoverLetterPage/CoverLetterPage'))
@@ -70,7 +69,6 @@ const App: React.FC = () => {
         <Suspense fallback={<div></div>}>
           <RouterProvider router={router} />
         </Suspense>
-        <Toaster />
       </Provider>
     </AppletProvider>
   )

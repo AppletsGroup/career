@@ -1,7 +1,7 @@
 import { createPost, getPost, updatePost } from 'applet-apis'
+import { useApplet } from 'applet-shell'
 import { type Post } from 'applet-types'
 import { useEffect, useState } from 'react'
-import toast from 'react-hot-toast'
 import { useNavigate, useParams } from 'react-router-dom'
 import { type Licence, type Education, type WorkExperience } from '../../types/resume'
 import AwardsForm from './components/AwardsForm'
@@ -22,6 +22,7 @@ const ResumeFormPage = () => {
   const [awards, setAwards] = useState<string[]>([])
   const { resumeId } = useParams<{ resumeId: string }>()
   const navigate = useNavigate()
+  const applet = useApplet()
 
   useEffect(() => {
     const loadPost = async () => {
@@ -72,7 +73,7 @@ const ResumeFormPage = () => {
 
       await updatePost(updatedPost)
 
-      toast.success('update Resume success')
+      applet?.toast.success('update Resume success')
 
       navigate(`/resumes/${resumeId}`)
     } else {
@@ -86,7 +87,7 @@ const ResumeFormPage = () => {
 
       await createPost(post2Create)
 
-      toast.success('create Resume success')
+      applet?.toast.success('create Resume success')
     }
   }
 

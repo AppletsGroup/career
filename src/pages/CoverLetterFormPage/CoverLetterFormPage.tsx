@@ -8,10 +8,9 @@ import {
 } from 'nonepub'
 import { Button, useIsMobile } from 'applet-design'
 import { type Post } from 'applet-types'
-import toast from 'react-hot-toast'
 import NonePubEditor from '../../components/NonePubEditor/NonePubEditor'
 import { useAppDispatch, post } from 'applet-store'
-import { useApplet } from 'applet-shell'
+import { PageHeader, useApplet } from 'applet-shell'
 
 const { postAdded } = post
 export default function CoverLetterFormPage () {
@@ -23,7 +22,6 @@ export default function CoverLetterFormPage () {
   const titleInputRef = useRef<HTMLInputElement>(null)
   const [title, setTitle] = useState('')
   const [resetEditorContent, setResetEditorContent] = useState(false)
-  const [hasConfigNavigation, setHasConfigNavigation] = useState(false)
 
   const isMobile = useIsMobile()
   const applet = useApplet()
@@ -71,19 +69,6 @@ export default function CoverLetterFormPage () {
     }
   }, [coverLetterId])
 
-  useEffect(() => {
-    if (!hasConfigNavigation && applet) {
-      applet?.setHeaderRightActions((
-        <Button
-          onClick={handleConfirmSave}
-          className="ml-2">
-          Done
-        </Button>
-      ))
-      setHasConfigNavigation(true)
-    }
-  }, [applet])
-
   if (!loaded) {
     return (
       <div>Loading...</div>
@@ -123,13 +108,22 @@ export default function CoverLetterFormPage () {
       if (titleInputRef.current != null) titleInputRef.current.value = ''
       setResetEditorContent(!resetEditorContent)
 
-      toast.success('create cover letter success')
+      applet?.toast.success('create cover letter success')
       navigate(`/coverletters/${newPost.id}`, { replace: true })
     }
   }
 
   return (
     <>
+      <PageHeader
+        headerTitle='Edit Cover Letter'
+        headerRightActions={ (
+          <Button
+            onClick={handleConfirmSave}
+            className="ml-2">
+            Done
+          </Button>
+      )}/>
       <div className="mx-auto max-w-xl px-5 lg:px-0">
         <input
           defaultValue={title}

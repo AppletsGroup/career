@@ -10,34 +10,20 @@ import { useEffect, useState } from 'react'
 import { getPost } from 'applet-apis'
 import { post, useAppDispatch, useAppSelector } from 'applet-store'
 import HeaderRightAction from './components/HeaderRigthAction'
-import { useApplet } from 'applet-shell'
+import { PageHeader, useApplet } from 'applet-shell'
 
 const { initCurrentPost } = post
 
 export default function CoverLetterPage() {
+  const applet = useApplet()
   const { coverLetterId } = useParams<{ coverLetterId: string, groupId: string, postId: string }>()
 
   const [loaded, setLoaded] = useState(false)
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
-  const { isAuthed, profile } = useAppSelector(state => state.user)
   const { currentPost } = useAppSelector(state => state.post)
-  const isAuthor = isAuthed && profile !== null && profile.id === currentPost?.authorId
-  console.log({
-    isAuthor
-  })
+  const isAuthor = applet?.profile && applet.profile.id === currentPost?.authorId
   const dispatch = useAppDispatch()
-
-  const applet = useApplet()
-  const [hasConfigNavigation, setHasConfigNavigation] = useState(false)
-
-  useEffect(() => {
-    if (!hasConfigNavigation && applet && coverLetterId) {
-      applet.setHeaderTitle('Cover Letter Detail')
-      applet.setHeaderRightActions(<HeaderRightAction coverLetterId={coverLetterId} />)
-      setHasConfigNavigation(true)
-    }
-  }, [applet])
 
   useEffect(() => {
     const loadPost = async () => {
@@ -55,7 +41,7 @@ export default function CoverLetterPage() {
     } else {
       setLoaded(true)
     }
-  }, [dispatch, coverLetterId, isAuthed])
+  }, [dispatch, coverLetterId])
 
   const options = defaultPreset(
     {
@@ -86,13 +72,19 @@ export default function CoverLetterPage() {
   }
 
   return (
-    <div className="mx-auto max-w-3xl pt-2">
-      <div className="mt-2 py-5 px-3">
-        <div className="text-center text-3xl">{title}</div>
+    <>
+      <PageHeader
+        headerTitle="Cover Letter Detail"
+        headerRightActions={isAuthor && coverLetterId ? <HeaderRightAction coverLetterId={coverLetterId} /> : <></>}/>
+
+      <div className="mx-auto max-w-3xl pt-2">
+        <div className="mt-2 py-5 px-3">
+          <div className="text-center text-3xl">{title}</div>
+        </div>
+        <EditorProvider editor={editor}>
+          <EditorContent />
+        </EditorProvider>
       </div>
-      <EditorProvider editor={editor}>
-        <EditorContent />
-      </EditorProvider>
-    </div>
+    </>
   )
 }

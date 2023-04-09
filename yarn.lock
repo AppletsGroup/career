@@ -1182,15 +1182,17 @@ applet-design@^0.0.21:
     clsx "^1.2.1"
     react-hook-form "^7.43.5"
 
-applet-shell@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/applet-shell/-/applet-shell-0.0.4.tgz#b1f4e41e355680e261c99d1f4e3f4771ba01c643"
-  integrity sha512-wzG3vH1ha6IOoA1nGiXizuveo2d6z4dkeCVyzcDuCFLAx1PerKY3b9Ztjj2tWi25FRblo649D8k1bzvEmlWs1w==
+applet-shell@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/applet-shell/-/applet-shell-0.0.6.tgz#36f529a8908afd4fdc0babc2a1b2b02aec10e99c"
+  integrity sha512-U72jEmwz1zy3VHJfHzQxkv3GLZLu9841qoDELLX8/yF4q3pNfxcFsDHEfMfpTfO2iWOHTKNxD0vBZFR7o2rHwQ==
   dependencies:
+    applet-apis "^0.0.13"
     applet-design "^0.0.21"
-    applet-store "^0.0.10"
+    applet-types "^0.0.4"
     framer-motion "^10.10.0"
     react "^18.2.0"
+    react-hot-toast "^2.4.0"
     react-icons "^4.8.0"
     react-router-dom "^6.10.0"
 
