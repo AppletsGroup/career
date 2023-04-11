@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react'
+import React, { lazy } from 'react'
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom'
 import { appletStore } from 'applet-store'
 import { Provider } from 'react-redux'
@@ -66,9 +66,7 @@ const App: React.FC = () => {
   return (
     <AppletProvider>
       <Provider store={appletStore}>
-        <Suspense fallback={<div></div>}>
-          <RouterProvider router={router} />
-        </Suspense>
+        <RouterProvider router={router} />
       </Provider>
     </AppletProvider>
   )
