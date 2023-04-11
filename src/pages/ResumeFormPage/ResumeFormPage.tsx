@@ -20,13 +20,14 @@ const ResumeFormPage = () => {
   const [skills, setSkills] = useState<string[]>([])
   const [licences, setLicences] = useState<Licence[]>([])
   const [awards, setAwards] = useState<string[]>([])
-  const { resumeId } = useParams<{ resumeId: string }>()
+  const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
   const applet = useApplet()
+  const resumeId = Number(id)
 
   useEffect(() => {
     const loadPost = async () => {
-      const res = await getPost(Number(resumeId))
+      const res = await getPost(resumeId)
       if (res) {
         setTitle(res.title)
         setSummary(res.content)
@@ -57,7 +58,7 @@ const ResumeFormPage = () => {
       name
     }
 
-    if (resumeId !== null) {
+    if (resumeId > 0) {
       const updatedPost: {
         postId: number
         store: any
@@ -67,13 +68,13 @@ const ResumeFormPage = () => {
       } = {
         title,
         content: summary,
-        postId: Number(resumeId),
+        postId: resumeId,
         store: newResumeStore
       }
 
       await updatePost(updatedPost)
 
-      applet?.toast.success('update Resume success')
+      applet?.toast.success('Resume Update Success')
 
       navigate(`/resumes/${resumeId}`)
     } else {
@@ -87,7 +88,7 @@ const ResumeFormPage = () => {
 
       await createPost(post2Create)
 
-      applet?.toast.success('create Resume success')
+      applet?.toast.success('Resume Create Success')
     }
   }
 
@@ -159,8 +160,8 @@ const ResumeFormPage = () => {
         <AwardsForm
           onChange={setAwards}
           awards={awards} />
-        {/* Submit button */}
-        <div>
+
+        <div className="text-center">
           <button
             type="submit"
             className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-4"

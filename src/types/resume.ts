@@ -56,6 +56,7 @@ export interface Resume {
   skills: string[] // An array of the person's skills
   workExperiences: WorkExperience[]
   education: Education[]
+  licence?: Licence[]
   awards: string[] // An array of any awards or honors received
 }
 

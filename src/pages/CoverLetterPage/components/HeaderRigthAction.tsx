@@ -2,7 +2,7 @@ import { Dropdown } from 'applet-design'
 import { Link } from 'react-router-dom'
 import { HiDotsHorizontal } from 'react-icons/hi'
 
-export default function HeaderRightAction({ coverLetterId }: { coverLetterId: string }) {
+export default function HeaderRightAction({ coverLetterId }: { coverLetterId: number }) {
   const handleCloneCoverLetter = () => {
 
   }

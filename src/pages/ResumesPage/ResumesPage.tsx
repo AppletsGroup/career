@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import ResumeCard from '../../components/ResumeCard/ResumeCard'
 import { useAppDispatch, useAppSelector, post } from 'applet-store'
 import { useReachBottom } from 'use-reach-bottom'

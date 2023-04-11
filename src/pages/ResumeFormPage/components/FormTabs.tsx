@@ -16,7 +16,7 @@ export default function FormTabs() {
   ]
 
   return (
-    <div className="flex flex-row overflow-x-scroll whitespace-nowrap w-screen sticky top-0 bg-white">
+    <div className="flex flex-row overflow-x-auto whitespace-nowrap w-screen sticky top-0 bg-white">
       {tabs.map((tab) => (
         <div
           key={tab.id}

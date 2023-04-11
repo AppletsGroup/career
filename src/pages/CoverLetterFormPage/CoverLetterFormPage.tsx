@@ -14,8 +14,8 @@ import { PageHeader, useApplet } from 'applet-shell'
 
 const { postAdded } = post
 export default function CoverLetterFormPage () {
-  const { coverLetterId } = useParams<{ coverLetterId: string }>()
-
+  const { id } = useParams<{ id: string }>()
+  const coverLetterId = Number(id)
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const [loaded, setLoaded] = useState(false)
@@ -54,7 +54,7 @@ export default function CoverLetterFormPage () {
 
   useEffect(() => {
     const loadPost = async () => {
-      const res = await getPost(Number(coverLetterId))
+      const res = await getPost(coverLetterId)
       if (res) {
         setTitle(res.title ?? '')
         editor.replaceContent(res.content || '<p></p>')
@@ -80,11 +80,11 @@ export default function CoverLetterFormPage () {
     const docTitle = titleInputRef.current?.value
     const shortContent = htmlString.replace(/<[^>]+>/g, '').substring(0, 100)
 
-    if (coverLetterId != null) {
+    if (coverLetterId > 0) {
       await updatePost({
         title: docTitle,
         content: htmlString,
-        postId: Number(coverLetterId),
+        postId: coverLetterId,
         store: { shortContent }
       })
 

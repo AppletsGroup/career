@@ -9,15 +9,15 @@ import SkillsDetail from './components/SkillsDetail'
 import ContactDetail from './components/ContactDetail'
 import HeaderRightAction from './components/HeaderRigthAction'
 import { PageHeader } from 'applet-shell'
-// import EditButton from './components/EditButton'
 
 const ResumePage = () => {
-  const { resumeId } = useParams<{ resumeId: string }>()
-  const [resume, setResume] = React.useState<Resume | null>(null)
+  const { id } = useParams<{ id: string }>()
+  const [resume, setResume] = useState<Resume | null>(null)
+  const resumeId = Number(id)
 
   useEffect(() => {
     const loadPost = async () => {
-      const post = await getPost(Number(resumeId))
+      const post = await getPost(resumeId)
       const { id, title, content, store } = post
       const { workExperiences, education, skills, awards, contact } = store
 
@@ -44,8 +44,10 @@ const ResumePage = () => {
     <>
       <PageHeader
         headerTitle="Resume Detail"
-        headerRightActions={resumeId ? (<HeaderRightAction resumeId={resumeId} />) : <></>} />
-      <div className="p-4">
+        headerRightActions={resumeId ? (<HeaderRightAction resume={resume} />) : <></>} />
+      <div
+        className="p-4 max-w-2xl mx-auto"
+        id="resume-pdf">
         <div className="mb-8">
           <h1 className="text-4xl font-bold">{resume.name}</h1>
           <p className="text-lg">{resume.title}</p>
@@ -57,8 +59,6 @@ const ResumePage = () => {
         <WorkExperienceDetail workExperiences={resume.workExperiences} />
         <EducationDetail educations={resume.education} />
         <AwardsDetail awards={resume.awards} />
-
-        {/* {resumeId && (<EditButton resumeId={resumeId} />)} */}
       </div>
     </>
   )

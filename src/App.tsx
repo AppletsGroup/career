@@ -37,25 +37,25 @@ const router = createBrowserRouter(
       </Route>
       <Route element={<SubPageLayout />}>
         <Route
-          path="/resumes/:resumeId"
+          path="/resumes/:id"
           element={<ResumePage />} />
         <Route
           path="/resumes/new"
           element={<ResumeFormPage />} />
         <Route
-          path="/resumes/:resumeId/edit"
+          path="/resumes/:id/edit"
           element={<ResumeFormPage />} />
         <Route
           path="/coverletters"
           element={<CoverLettersPage />} />
         <Route
-          path="/coverletters/:coverLetterId"
+          path="/coverletters/:id"
           element={<CoverLetterPage />} />
         <Route
           path="/coverletters/new"
           element={<CoverLetterFormPage />} />
         <Route
-          path="/coverletters/:coverLetterId/edit"
+          path="/coverletters/:id/edit"
           element={<CoverLetterFormPage />} />
       </Route>
     </Route>

@@ -16,7 +16,8 @@ const { initCurrentPost } = post
 
 export default function CoverLetterPage() {
   const applet = useApplet()
-  const { coverLetterId } = useParams<{ coverLetterId: string, groupId: string, postId: string }>()
+  const { id } = useParams<{ id: string }>()
+  const coverLetterId = Number(id)
 
   const [loaded, setLoaded] = useState(false)
   const [title, setTitle] = useState('')
@@ -27,7 +28,7 @@ export default function CoverLetterPage() {
 
   useEffect(() => {
     const loadPost = async () => {
-      const res = await getPost(Number(coverLetterId))
+      const res = await getPost(coverLetterId)
       if (res) {
         setTitle(res.title ?? '')
         setContent(res.content ?? '')
