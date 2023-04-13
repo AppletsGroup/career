@@ -44,9 +44,9 @@ const ResumesPage = () => {
   })
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white dark:bg-gray-900 min-h-screen">
       <div className="max-w-7xl mx-auto py-5 sm:px-6 lg:px-8 px-4">
-        <h2 className="text-3xl font-extrabold text-blue-500">Resumes</h2>
+        <h2 className="text-3xl font-extrabold text-blue-500 dark:text-white">Resumes</h2>
         <div className="mt-8 grid gap-8 lg:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1">
           {resumes.map((resume) => (
             <ResumeCard

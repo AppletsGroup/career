@@ -1005,6 +1005,18 @@
     "@typescript-eslint/types" "5.56.0"
     eslint-visitor-keys "^3.3.0"
 
+"@use-gesture/core@10.2.26":
+  version "10.2.26"
+  resolved "https://registry.yarnpkg.com/@use-gesture/core/-/core-10.2.26.tgz#c2fc4aa7d36cee7319a98a898b0698c66b01663e"
+  integrity sha512-NyFpQ3iID9iFBROXyyvU1D0NK+t+dP+WAVByhCvqHUenpxLD2NlRLVRpoK3XGGwksr6mU3PvZ2Nm4q0q+gLJPA==
+
+"@use-gesture/react@^10.2.26":
+  version "10.2.26"
+  resolved "https://registry.yarnpkg.com/@use-gesture/react/-/react-10.2.26.tgz#593549fed30ebcac71cfd197993eaede0795c098"
+  integrity sha512-0QhaE5mhaQbFlip4MX7n1nwCX8gax6Da1LsP2fZ/BU6xW9zyEmV6NX7DPelDxq1rr2NiBJh30vx9RIp80YeA/A==
+  dependencies:
+    "@use-gesture/core" "10.2.26"
+
 "@vitejs/plugin-react@^3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@vitejs/plugin-react/-/plugin-react-3.1.0.tgz#d1091f535eab8b83d6e74034d01e27d73c773240"
@@ -1187,14 +1199,16 @@ applet-design@^0.0.21:
     clsx "^1.2.1"
     react-hook-form "^7.43.5"
 
-applet-shell@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/applet-shell/-/applet-shell-0.0.9.tgz#142cd021420976bac13ad21f44c2fc7fdd11946b"
-  integrity sha512-q61l2IYSoAudHzW7gi8IpsES6Yu8jyQEw8zJcIrCtbHfxr9Zy+tWU8+OPZKClep4PIv2d95Cw1tmJcLzAPo7Aw==
+applet-shell@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/applet-shell/-/applet-shell-0.0.10.tgz#e39f707310a8e416226af5457c7b397124483253"
+  integrity sha512-e3qwL7QV8HTv5UzkozG3ipKCcDJ4gk2kfqt8CQEOVfp5dKAAly7dqaha9+M3yjzZxro6KMrepjufMgLCNj0jXg==
   dependencies:
+    "@use-gesture/react" "^10.2.26"
     applet-apis "^0.0.13"
     applet-design "^0.0.21"
     applet-types "^0.0.4"
+    classnames "^2.3.2"
     framer-motion "^10.10.0"
     react "^18.2.0"
     react-hot-toast "^2.4.0"
