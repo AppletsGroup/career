@@ -2,8 +2,7 @@ import { type Education } from '../../../types/resume'
 
 export default function EducationDetail ({ educations }: { educations: Education[] }) {
   return (
-
-    <div className="mb-8">
+    <div className="mb-8 dark:text-white">
       <h2 className="text-xl font-bold mb-4">Education</h2>
       {educations.map((education) => (
         <div

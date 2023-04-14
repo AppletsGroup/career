@@ -46,7 +46,7 @@ const ResumePage = () => {
         headerTitle="Resume Detail"
         headerRightActions={resumeId ? (<HeaderRightAction resume={resume} />) : <></>} />
       <div
-        className="p-4 max-w-2xl mx-auto"
+        className="p-4 max-w-2xl mx-auto bg-white text-gray-900 dark:bg-gray-900 dark:text-white"
         id="resume-pdf">
         <div className="mb-8">
           <h1 className="text-4xl font-bold">{resume.name}</h1>
