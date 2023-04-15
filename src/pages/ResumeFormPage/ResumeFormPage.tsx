@@ -10,6 +10,7 @@ import FormTabs from './components/FormTabs'
 import LicencesForm from './components/LicencesForm'
 import SkillsForm from './components/SkillsForm'
 import WorkExperiencesForm from './components/WorkExperiencesForm'
+import { Input, Label, TextArea } from 'applet-design'
 
 const ResumeFormPage = () => {
   const [name, setName] = useState<string>('')
@@ -93,48 +94,38 @@ const ResumeFormPage = () => {
   }
 
   return (
-    <div>
+    <div className="bg-white dark:bg-gray-900">
       <FormTabs />
       <form
         onSubmit={handleSubmit}
         className="p-2">
         <div className="mb-4">
-          <label
-            htmlFor="name"
-            className="block text-gray-700 font-bold mb-2">
+          <Label
+            htmlFor="name">
             Name
-          </label>
-          <input
-            type="text"
+          </Label>
+          <Input
             id="name"
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             value={name}
-            onChange={(event) => { setName(event.target.value) }}
-           />
+            onChange={(event) => { setName(event.target.value) }} />
         </div>
         <div className="mb-4">
-          <label
-            htmlFor="title"
-            className="block text-gray-700 font-bold mb-2">
+          <Label
+            htmlFor="title">
             Title
-          </label>
-          <input
-            type="text"
+          </Label>
+          <Input
             id="title"
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             value={title}
-            onChange={(event) => { setTitle(event.target.value) }}
-          />
+            onChange={(event) => { setTitle(event.target.value) }} />
         </div>
         <div className="mb-4">
-          <label
-            htmlFor="summary"
-            className="block text-gray-700 font-bold mb-2">
+          <Label
+            htmlFor="summary">
             Summary
-          </label>
-          <textarea
+          </Label>
+          <TextArea
             id="summary"
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             rows={4}
             value={summary}
             onChange={(event) => { setSummary(event.target.value) }}
@@ -143,28 +134,33 @@ const ResumeFormPage = () => {
 
         <WorkExperiencesForm
           onChange={setWorkExperiences}
-          workExperiences={workExperiences} />
+          workExperiences={workExperiences}
+        />
 
         <EducationForm
           onChange={setEducation}
-          education={education} />
+          education={education}
+        />
 
         <SkillsForm
           onChange={setSkills}
-          skills={skills} />
+          skills={skills}
+        />
 
         <LicencesForm
           onChange={setLicences}
-          licences={licences} />
+          licences={licences}
+        />
 
         <AwardsForm
           onChange={setAwards}
-          awards={awards} />
+          awards={awards}
+        />
 
         <div className="text-center">
           <button
             type="submit"
-            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-4"
+            className="bg-green-500 dark:bg-green-700 hover:bg-green-700 dark:hover:bg-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-4"
           >
             Save
           </button>

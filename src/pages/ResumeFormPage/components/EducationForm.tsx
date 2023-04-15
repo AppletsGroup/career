@@ -1,3 +1,4 @@
+import { Input, Label } from 'applet-design'
 import { type Education } from '../../../types/resume'
 
 interface EducationFormProps {
@@ -10,20 +11,17 @@ export default function EducationForm({ education, onChange }: EducationFormProp
     <div
       className="mb-4"
       id="education">
-      <label className="block text-gray-700 font-bold mb-2">Education</label>
+      <Label>Education</Label>
       {education.map((edu, index) => (
         <div
           key={index}
           className="mb-4">
-          <label
-            htmlFor={`school-${index}`}
-            className="block text-gray-700 font-bold mb-2">
+          <Label
+            htmlFor={`school-${index}`}>
             School
-          </label>
-          <input
-            type="text"
+          </Label>
+          <Input
             id={`school-${index}`}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             value={edu.school}
             onChange={(event) => {
               onChange([
@@ -33,57 +31,42 @@ export default function EducationForm({ education, onChange }: EducationFormProp
               ])
             }
               }
-            />
-          <label
-            htmlFor={`degree-${index}`}
-            className="block text-gray-700 font-bold mb-2">
-            {' '}
+          />
+          <Label
+            htmlFor={`degree-${index}`}>
             Degree
-            {' '}
-          </label>
-          <input
-            type="text"
+          </Label>
+          <Input
             id={`degree-${index}`}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             value={edu.degree}
-            onChange={(event) => { onChange([...education.slice(0, index), { ...edu, degree: event.target.value }, ...education.slice(index + 1)]) }} />
-          <label
-            htmlFor={`field-of-study-${index}`}
-            className="block text-gray-700 font-bold mb-2">
-            {' '}
+            onChange={(event) => { onChange([...education.slice(0, index), { ...edu, degree: event.target.value }, ...education.slice(index + 1)]) }}
+          />
+          <Label
+            htmlFor={`field-of-study-${index}`}>
             Field of Study
-            {' '}
-          </label>
-          <input
-            type="text"
+          </Label>
+          <Input
             id={`field-of-study-${index}`}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             value={edu.fieldOfStudy}
-            onChange={(event) => { onChange([...education.slice(0, index), { ...edu, fieldOfStudy: event.target.value }, ...education.slice(index + 1)]) }} />
-          <label
-            htmlFor={`start-date-${index}`}
-            className="block text-gray-700 font-bold mb-2">
-            {' '}
+            onChange={(event) => { onChange([...education.slice(0, index), { ...edu, fieldOfStudy: event.target.value }, ...education.slice(index + 1)]) }}
+          />
+          <Label
+            htmlFor={`start-date-${index}`}>
             Start Date
-            {' '}
-          </label>
-          <input
+          </Label>
+          <Input
             type="date"
             id={`start-date-${index}`}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             value={edu.startDate}
-            onChange={(event) => { onChange([...education.slice(0, index), { ...edu, startDate: event.target.value }, ...education.slice(index + 1)]) }} />
-          <label
-            htmlFor={`end-date-${index}`}
-            className="block text-gray-700 font-bold mb-2">
-            {' '}
+            onChange={(event) => { onChange([...education.slice(0, index), { ...edu, startDate: event.target.value }, ...education.slice(index + 1)]) }}
+          />
+          <Label
+            htmlFor={`end-date-${index}`}>
             End Date
-            {' '}
-          </label>
-          <input
+          </Label>
+          <Input
             type="date"
             id={`end-date-${index}`}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             value={edu.endDate}
             onChange={(event) => {
               onChange([
@@ -91,9 +74,8 @@ export default function EducationForm({ education, onChange }: EducationFormProp
                 { ...edu, endDate: event.target.value },
                 ...education.slice(index + 1)
               ])
-            }
-              }
-            />
+            }}
+          />
           <button
             type="button"
             className="text-red-500 font-bold float-right"

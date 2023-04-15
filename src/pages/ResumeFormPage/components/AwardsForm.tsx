@@ -1,3 +1,4 @@
+import { Input, Label } from 'applet-design'
 
 interface AwardsFormProps {
   onChange: (licenses: string[]) => void
@@ -9,19 +10,17 @@ export default function AwardsForm({ onChange, awards }: AwardsFormProps) {
     <div
       id="awards"
       className="mb-8">
-      <label
-        htmlFor="awards"
-        className="block text-gray-700 dark:text-gray-300 font-bold mb-2">
+      <Label
+        htmlFor="awards">
         Awards
-      </label>
+      </Label>
       {awards.map((award, index) => (
         <div
           key={index}
           className="mb-4">
-          <input
+          <Input
             type="text"
             id={`award-${index}`}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:bg-gray-800 dark:border-gray-600 dark:text-white leading-tight focus:outline-none focus:shadow-outline"
             value={award}
             onChange={(event) => { onChange([...awards.slice(0, index), event.target.value, ...awards.slice(index + 1)]) }
             }

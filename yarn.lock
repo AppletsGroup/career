@@ -1199,6 +1199,17 @@ applet-design@^0.0.21:
     clsx "^1.2.1"
     react-hook-form "^7.43.5"
 
+applet-design@^0.0.24:
+  version "0.0.24"
+  resolved "https://registry.yarnpkg.com/applet-design/-/applet-design-0.0.24.tgz#5a61634bd463ed8187b468135307b6d0f015fc30"
+  integrity sha512-zIrSX1+xkV5deFqGeaCO9/SrWFuqtRGAhWtGOOFgLS9kE9LkYmwEtJPAPzGEqIwxU0VDhqAqSq2yaNUM1FE2YQ==
+  dependencies:
+    "@headlessui/react" "^1.7.5"
+    "@heroicons/react" "^2.0.13"
+    applet-design-utility "^0.0.5"
+    clsx "^1.2.1"
+    react-hook-form "^7.43.5"
+
 applet-shell@^0.0.12:
   version "0.0.12"
   resolved "https://registry.yarnpkg.com/applet-shell/-/applet-shell-0.0.12.tgz#1ff2da8380714d6527cc361000ff4b5c0436de17"

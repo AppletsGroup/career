@@ -1,3 +1,4 @@
+import { Input, Label, TextArea } from 'applet-design'
 import { type WorkExperience } from '../../../types/resume'
 
 interface WorkExperiencesFormProps {
@@ -7,24 +8,22 @@ interface WorkExperiencesFormProps {
 
 export default function WorkExperiencesForm({ workExperiences, onChange }: WorkExperiencesFormProps) {
   return (
-
     <div
-      className="mb-4"
+      className="mb-4 "
       id="work-experiences">
-      <label className="block text-gray-700 font-bold mb-2">Work Experiences</label>
+      <Label>Work Experiences</Label>
       {workExperiences.map((experience, index) => (
         <div
           key={index}
-          className="mb-4">
-          <label
+          className="mb-4 dark:bg-gray-800 p-3">
+          <Label
             htmlFor={`company-name-${index}`}
-            className="block text-gray-700 font-bold mb-2">
+            >
             Company Name
-          </label>
-          <input
+          </Label>
+          <Input
             type="text"
             id={`company-name-${index}`}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             value={experience.companyName}
             onChange={(event) => {
               onChange([
@@ -32,18 +31,16 @@ export default function WorkExperiencesForm({ workExperiences, onChange }: WorkE
                 { ...experience, companyName: event.target.value },
                 ...workExperiences.slice(index + 1)
               ])
-            }
-        }
-      />
-          <label
+            }}
+          />
+          <Label
             htmlFor={`job-title-${index}`}
-            className="block text-gray-700 font-bold mb-2">
+            >
             Job Title
-          </label>
-          <input
+          </Label>
+          <Input
             type="text"
             id={`job-title-${index}`}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             value={experience.jobTitle}
             onChange={(event) => {
               onChange([
@@ -51,17 +48,15 @@ export default function WorkExperiencesForm({ workExperiences, onChange }: WorkE
                 { ...experience, jobTitle: event.target.value },
                 ...workExperiences.slice(index + 1)
               ])
-            }
-        }
-      />
-          <label
+            }}
+          />
+          <Label
             htmlFor={`job-description-${index}`}
-            className="block text-gray-700 font-bold mb-2">
+            >
             Job Description
-          </label>
-          <textarea
+          </Label>
+          <TextArea
             id={`job-description-${index}`}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             rows={4}
             value={experience.jobDescription}
             onChange={(event) => {
@@ -71,17 +66,16 @@ export default function WorkExperiencesForm({ workExperiences, onChange }: WorkE
                 ...workExperiences.slice(index + 1)
               ])
             }
-        }
-      />
-          <label
+              }
+            />
+          <Label
             htmlFor={`start-date-${index}`}
-            className="block text-gray-700 font-bold mb-2">
+            >
             Start Date
-          </label>
-          <input
+          </Label>
+          <Input
             type="date"
             id={`start-date-${index}`}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             value={experience.startDate}
             onChange={(event) => {
               onChange([
@@ -89,18 +83,16 @@ export default function WorkExperiencesForm({ workExperiences, onChange }: WorkE
                 { ...experience, startDate: event.target.value },
                 ...workExperiences.slice(index + 1)
               ])
-            }
-        }
-      />
-          <label
+            }}
+          />
+          <Label
             htmlFor={`end-date-${index}`}
-            className="block text-gray-700 font-bold mb-2">
+          >
             End Date
-          </label>
-          <input
+          </Label>
+          <Input
             type="date"
             id={`end-date-${index}`}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             value={experience.endDate}
             onChange={(event) => {
               onChange([
@@ -108,22 +100,22 @@ export default function WorkExperiencesForm({ workExperiences, onChange }: WorkE
                 { ...experience, endDate: event.target.value },
                 ...workExperiences.slice(index + 1)
               ])
-            }
-        }
-      />
+            }}
+          />
           <button
             type="button"
-            className="text-red-500 font-bold float-right"
-            onClick={() => { onChange([...workExperiences.slice(0, index), ...workExperiences.slice(index + 1)]) }
-        }
-      >
+            className="text-red-500 font-bold float-right dark:text-red-400"
+            onClick={() => {
+              onChange([...workExperiences.slice(0, index), ...workExperiences.slice(index + 1)])
+            }}
+>
             Remove
           </button>
         </div>
       ))}
       <button
         type="button"
-        className="text-green-500 font-bold mb-4"
+        className="text-green-500 font-bold mb-4 dark:text-green-400"
         onClick={() => {
           onChange([
             ...workExperiences,
@@ -135,9 +127,8 @@ export default function WorkExperiencesForm({ workExperiences, onChange }: WorkE
               endDate: ''
             }
           ])
-        }
-    }
-  >
+        }}
+>
         Add Work Experience
       </button>
     </div>
