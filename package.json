@@ -14,7 +14,7 @@
   "dependencies": {
     "applet-apis": "^0.0.13",
     "applet-design": "^0.0.24",
-    "applet-shell": "^0.0.12",
+    "applet-shell": "^0.0.14",
     "applet-store": "^0.0.10",
     "applet-types": "^0.0.4",
     "classnames": "^2.3.2",

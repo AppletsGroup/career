@@ -61,7 +61,7 @@ export default function HeaderRightAction({ resume }: { resume: Resume }) {
         </div>
   )}
 >
-      <div className="flex items-center">
+      <div className="flex items-center dark:text-gray-300">
         <HiDotsHorizontal size={20} />
       </div>
     </Dropdown>
