@@ -16,18 +16,19 @@ export default function FormTabs() {
   ]
 
   return (
-    <div className="flex flex-row overflow-x-auto whitespace-nowrap w-screen sticky top-0 bg-white">
+    <div className="flex flex-row overflow-x-auto whitespace-nowrap w-screen sticky top-0 bg-white dark:bg-gray-900">
       {tabs.map((tab) => (
         <div
           key={tab.id}
-          className="px-4 py-2 cursor-pointer inline-block border-b-2 border-transparent hover:border-blue-500"
+          className="px-4 py-2 cursor-pointer inline-block border-b-2 border-transparent hover:border-blue-500 dark:border-blue-500"
           onClick={() => {
             handleTabClick(tab.id)
           }}
-        >
-          {tab.label}
+    >
+          <span className="dark:text-white">{tab.label}</span>
         </div>
       ))}
     </div>
+
   )
 }
