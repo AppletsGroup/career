@@ -45,20 +45,22 @@ const ResumePage = () => {
       <PageHeader
         headerTitle="Resume Detail"
         headerRightActions={resumeId ? (<HeaderRightAction resume={resume} />) : <></>} />
-      <div
-        className="p-4 max-w-2xl mx-auto bg-white text-gray-900 dark:bg-gray-900 dark:text-white"
-        id="resume-pdf">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold">{resume.name}</h1>
-          <p className="text-lg">{resume.title}</p>
-          <p className="text-lg">{resume.summary}</p>
-        </div>
+      <div className="bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
+        <div
+          className="p-4 max-w-2xl mx-auto"
+          id="resume-pdf">
+          <div className="mb-8">
+            <h1 className="text-4xl font-bold">{resume.name}</h1>
+            <p className="text-lg">{resume.title}</p>
+            <p className="text-lg">{resume.summary}</p>
+          </div>
 
-        <ContactDetail contact={resume.contact} />
-        <SkillsDetail skills={resume.skills} />
-        <WorkExperienceDetail workExperiences={resume.workExperiences} />
-        <EducationDetail educations={resume.education} />
-        <AwardsDetail awards={resume.awards} />
+          <ContactDetail contact={resume.contact} />
+          <SkillsDetail skills={resume.skills} />
+          <WorkExperienceDetail workExperiences={resume.workExperiences} />
+          <EducationDetail educations={resume.education} />
+          <AwardsDetail awards={resume.awards} />
+        </div>
       </div>
     </>
   )

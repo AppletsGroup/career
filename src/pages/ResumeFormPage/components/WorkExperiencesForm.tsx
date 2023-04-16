@@ -15,7 +15,7 @@ export default function WorkExperiencesForm({ workExperiences, onChange }: WorkE
       {workExperiences.map((experience, index) => (
         <div
           key={index}
-          className="mb-4 dark:bg-gray-800 p-3">
+          className="mb-4 dark:bg-gray-800 p-5 rounded-2xl">
           <Label
             htmlFor={`company-name-${index}`}
             >

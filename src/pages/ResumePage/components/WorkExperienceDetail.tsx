@@ -7,7 +7,7 @@ export default function WorkExperienceDetail({ workExperiences }: { workExperien
       {workExperiences.map((experience) => (
         <div
           key={experience.jobTitle}
-          className="mb-4 bg-white dark:bg-gray-800 p-2">
+          className="mb-4 bg-white dark:bg-gray-800 p-5 rounded-2xl">
           <div className="flex justify-between items-start mb-2">
             <h3 className="text-lg font-bold">{experience.jobTitle}</h3>
             <span className="text-gray-600 text-sm dark:text-gray-400">
