@@ -3,7 +3,7 @@ import { type Contact } from '../../../types/resume'
 export default function ContactDetail({ contact }: { contact: Contact }) {
   return (
     <div className="flex flex-col md:flex-row md:justify-between">
-      <div className="mb-8 md:mb-0">
+      <div className="mb-8">
         <h2 className="text-xl font-bold mb-4">Contact</h2>
         <div className="mb-2 text-gray-600 dark:text-gray-400">
           <span className="mr-2">Phone:</span>

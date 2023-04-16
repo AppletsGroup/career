@@ -10,7 +10,7 @@ const ResumeCard: React.FC<Props> = ({ resume }) => {
   return (
     <Link
       to={`/resumes/${resume.id}`}
-      className="bg-white dark:bg-gray-800 hover:bg-gray-100 shadow-lg rounded-lg overflow-hidden">
+      className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
       <div className="px-4 py-5 sm:px-6">
         <h3 className="text-lg leading-6 font-medium text-gray-900 dark:text-white">{resume.title}</h3>
         <p className="mt-1 max-w-2xl text-sm text-gray-500 dark:text-gray-400">{resume.summary}</p>

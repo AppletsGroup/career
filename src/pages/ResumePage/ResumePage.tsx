@@ -19,7 +19,7 @@ const ResumePage = () => {
     const loadPost = async () => {
       const post = await getPost(resumeId)
       const { id, title, content, store } = post
-      const { workExperiences, education, skills, awards, contact } = store
+      const { workExperiences, education, skills, awards, contact, name } = store
 
       setResume({
         id,
@@ -29,7 +29,8 @@ const ResumePage = () => {
         workExperiences,
         education,
         skills,
-        awards
+        awards,
+        name
       })
     }
 
@@ -50,7 +51,7 @@ const ResumePage = () => {
           className="p-4 max-w-2xl mx-auto"
           id="resume-pdf">
           <div className="mb-8">
-            <h1 className="text-4xl font-bold">{resume.name}</h1>
+            <h1 className="text-4xl font-bold mb-4">{resume.name}</h1>
             <p className="text-lg">{resume.title}</p>
             <p className="text-lg">{resume.summary}</p>
           </div>
