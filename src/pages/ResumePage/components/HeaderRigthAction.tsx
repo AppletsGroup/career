@@ -2,36 +2,11 @@ import { Dropdown } from 'applet-design'
 import { Link } from 'react-router-dom'
 import { HiDotsHorizontal } from 'react-icons/hi'
 import { type Resume } from '../../../types/resume'
-import JSPDF from 'jspdf'
-import html2canvas from 'html2canvas'
+import ResumePDF from '../../../components/ResumePDF/ResumePDF'
+import { PDFDownloadLink } from '@react-pdf/renderer'
 
 export default function HeaderRightAction({ resume }: { resume: Resume }) {
   const handleCloneResume = () => {
-  }
-
-  const handleExportPDF = () => {
-    const input = document.getElementById('resume-pdf')
-    if (input) {
-      html2canvas(input)
-        .then((canvas) => {
-          const imgData = canvas.toDataURL('image/png')
-          const pdf = new JSPDF()
-          const imgProps = pdf.getImageProperties(imgData)
-          const pdfWidth = pdf.internal.pageSize.getWidth()
-          const pdfHeight = pdf.internal.pageSize.getHeight()
-          const imgHeight = (imgProps.height * pdfWidth) / imgProps.width
-          const numPages = Math.ceil(imgHeight / pdfHeight)
-          let yOffset = 0
-          for (let i = 0; i < numPages; i++) {
-            pdf.addImage(imgData, 'PNG', 0, -yOffset, pdfWidth, 0, '', 'NONE')
-            yOffset += pdfHeight
-            pdf.addPage()
-          }
-          pdf.save('download.pdf')
-        }).catch((err) => {
-          console.log(err)
-        })
-    }
   }
 
   return (
@@ -51,12 +26,13 @@ export default function HeaderRightAction({ resume }: { resume: Resume }) {
         >
               Clone
             </button>
-            <button
-              onClick={handleExportPDF}
+            <PDFDownloadLink
+              document={<ResumePDF resumeData={resume}/>}
+              fileName={`${resume.name} - ${resume.title}`}
               className='text-gray-700 block w-full px-4 py-2 text-left text-sm bg-gray-100 dark:text-white dark:bg-gray-700'
         >
               Export to PDF
-            </button>
+            </PDFDownloadLink>
           </div>
         </div>
   )}

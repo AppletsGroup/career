@@ -12,14 +12,13 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@react-pdf/renderer": "^3.1.9",
     "applet-apis": "^0.0.13",
     "applet-design": "^0.0.24",
     "applet-shell": "^0.0.15",
     "applet-store": "^0.0.10",
     "applet-types": "^0.0.4",
     "classnames": "^2.3.2",
-    "html2canvas": "^1.4.1",
-    "jspdf": "^2.5.1",
     "nonepub": "^0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
