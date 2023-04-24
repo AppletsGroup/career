@@ -1360,10 +1360,10 @@ applet-design@^0.0.24:
     clsx "^1.2.1"
     react-hook-form "^7.43.5"
 
-applet-shell@^0.0.17:
-  version "0.0.17"
-  resolved "https://registry.yarnpkg.com/applet-shell/-/applet-shell-0.0.17.tgz#c7e4f219e3e10eeabb0488a297e76e9c3218f564"
-  integrity sha512-NdWNQ3u0JnhWM3S7z8romMZIBKXJxJpdsmi1RMEIlAUH/is29JkP45lvL/i/soInJ2AHJL6ZaNi6u3I3dqnV+g==
+applet-shell@^0.0.18:
+  version "0.0.18"
+  resolved "https://registry.yarnpkg.com/applet-shell/-/applet-shell-0.0.18.tgz#47d4989d6a5261c9e1780f16856df22de2b62583"
+  integrity sha512-KHF6KRNeYb08A2clWtC57NopwvIqhTD1sSOWv9m3ntoiPSq+kEug4+ytuEYXBF4wO0yuuzDxgspFw4vQREHsaA==
   dependencies:
     "@use-gesture/react" "^10.2.26"
     applet-apis "^0.0.13"
