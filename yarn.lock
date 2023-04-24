@@ -1333,6 +1333,11 @@ applet-design-utility@^0.0.5:
   resolved "https://registry.yarnpkg.com/applet-design-utility/-/applet-design-utility-0.0.5.tgz#06092eff04d22b82fcce0af388160bd74595a0d5"
   integrity sha512-EbtSNdrJUZJ0lVfToMo+wK9K+7U3Rl41509Sh5AQk8uTO32DIs1VSyZ3CyIWIP31DIbdZeBMOSGfko71VF+h9g==
 
+applet-design-utility@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/applet-design-utility/-/applet-design-utility-0.0.6.tgz#a0b6607fece3a064b14a054700138ca46dc69db2"
+  integrity sha512-XHtKRBSm/pwkuw2hbK2JSbhSf5UNoWhqaeDLmhAM1QYfPSwILvaN0/uNNyjHB/0MDEyJiX40bxLuZqbXFJw/Lg==
+
 applet-design@^0.0.21:
   version "0.0.21"
   resolved "https://registry.yarnpkg.com/applet-design/-/applet-design-0.0.21.tgz#416d26139baf175dedcc7ed8004f0c6bd1a7d671"
@@ -1355,10 +1360,10 @@ applet-design@^0.0.24:
     clsx "^1.2.1"
     react-hook-form "^7.43.5"
 
-applet-shell@^0.0.16:
-  version "0.0.16"
-  resolved "https://registry.yarnpkg.com/applet-shell/-/applet-shell-0.0.16.tgz#d132a4245f4b3e74e636a8aec8611b0f4329b21f"
-  integrity sha512-p6ODCBGcDKpGP6nRUMAEpfLJy7DxAUZLBQtBtdTwQo93ngv+7JabI/dKEsVgNmxP+x0qHd8i+3wRO6d35UD+nQ==
+applet-shell@^0.0.17:
+  version "0.0.17"
+  resolved "https://registry.yarnpkg.com/applet-shell/-/applet-shell-0.0.17.tgz#c7e4f219e3e10eeabb0488a297e76e9c3218f564"
+  integrity sha512-NdWNQ3u0JnhWM3S7z8romMZIBKXJxJpdsmi1RMEIlAUH/is29JkP45lvL/i/soInJ2AHJL6ZaNi6u3I3dqnV+g==
   dependencies:
     "@use-gesture/react" "^10.2.26"
     applet-apis "^0.0.13"
