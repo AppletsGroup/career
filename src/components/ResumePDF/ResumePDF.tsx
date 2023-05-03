@@ -10,61 +10,37 @@ const styles = StyleSheet.create({
     paddingHorizontal: 35
   },
   section: {
-    margin: 10,
-    padding: 10,
-    flexGrow: 1
+    marginBottom: 10
   },
-  title: {
+  h1: {
     fontSize: 24,
-    textAlign: 'center',
-    fontFamily: 'Helvetica-Bold'
-  },
-  subtitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginBottom: 5
-  },
-  heading: {
-    fontSize: 14,
     fontFamily: 'Helvetica-Bold',
     marginTop: 10,
-    marginBottom: 5
+    marginBottom: 10
   },
-  body: {
-    fontSize: 11,
-    fontFamily: 'Helvetica',
-    textAlign: 'justify'
-  },
-  subheading: {
-    fontSize: 12,
+  h2: {
+    fontSize: 16,
     fontFamily: 'Helvetica-Bold',
-    marginTop: 7,
-    marginBottom: 5
+    marginTop: 10,
+    marginBottom: 5,
+    borderBottom: '0.5px solid #eee',
+    paddingBottom: '5px'
   },
-  subbody: {
-    fontSize: 11,
-    fontFamily: 'Helvetica',
-    textAlign: 'justify',
-    marginHorizontal: 10
+  h3: {
+    fontSize: 14,
+    fontFamily: 'Helvetica-Bold',
+    marginTop: 5
+  },
+  h4: {
+    fontSize: 12,
+    marginTop: 5,
+    marginBottom: 5,
+    fontFamily: 'Helvetica-BoldOblique'
   },
   text: {
-    fontSize: 14,
-    marginBottom: 5
-  },
-  contact: {
-    fontSize: 11,
-    fontFamily: 'Helvetica',
+    fontSize: 12,
+    marginBottom: 5,
     textAlign: 'left'
-  },
-  skills: {
-    fontSize: 11,
-    fontFamily: 'Helvetica',
-    marginTop: 7
-  },
-  awards: {
-    fontSize: 11,
-    fontFamily: 'Helvetica',
-    marginTop: 7
   }
 })
 
@@ -75,23 +51,23 @@ export default function ResumePDF({ resumeData }: { resumeData: Resume }) {
         size="A4"
         style={styles.page}>
         <View style={styles.section}>
-          <Text style={styles.title}>{resumeData.name}</Text>
-          <Text style={styles.heading}>{resumeData.title}</Text>
-          <Text style={styles.body}>{resumeData.summary}</Text>
+          <Text style={styles.h1}>{resumeData.name}</Text>
+          <Text style={styles.text}>{resumeData.title}</Text>
+          <Text style={styles.text}>{resumeData.summary}</Text>
         </View>
         <View style={styles.section}>
-          <Text style={styles.heading}>Contact Information</Text>
+          <Text style={styles.h2}>Contact Information</Text>
           <View>
-            <Text style={styles.contact}>{resumeData.contact?.email}</Text>
-            <Text style={styles.contact}>{resumeData.contact?.phone}</Text>
+            <Text style={styles.text}>{resumeData.contact?.email}</Text>
+            <Text style={styles.text}>{resumeData.contact?.phone}</Text>
           </View>
         </View>
         <View style={styles.section}>
-          <Text style={styles.heading}>Skills</Text>
+          <Text style={styles.h2}>Skills</Text>
           <View>
             {resumeData.skills.map((skill, index) => (
               <Text
-                style={styles.skills}
+                style={styles.text}
                 key={index}>
                 {skill}
               </Text>
@@ -99,47 +75,40 @@ export default function ResumePDF({ resumeData }: { resumeData: Resume }) {
           </View>
         </View>
         <View style={styles.section}>
-          <Text style={styles.title}>Work Experience</Text>
+          <Text style={styles.h2}>Work Experience</Text>
           {resumeData.workExperiences.map((exp, index) => (
             <View
               key={index}
               style={styles.section}>
-              <Text style={styles.subtitle}>{exp.jobTitle}</Text>
-              <Text style={styles.text}>{exp.companyName}</Text>
-              <Text style={styles.text}>
-                {exp.startDate}
-                {' '}
-                -
-                {' '}
-                {exp.endDate ? exp.endDate : 'Present'}
+              <Text style={styles.h3}>{exp.companyName}</Text>
+              <Text style={styles.h4}>
+                {`${exp.jobTitle} / - ${exp.startDate} - ${exp.endDate ? exp.endDate : 'Present'}`}
               </Text>
               {exp.location && (
                 <Text style={styles.text}>
-                  {exp.location.city}
-                  ,
-                  {' '}
-                  {exp.location.state}
-                  ,
-                  {' '}
-                  {exp.location.country}
+                  {`${exp.location.city}, ${exp.location.state}, ${exp.location.country}`}
                 </Text>
               )}
               <Text style={styles.text}>{exp.jobDescription}</Text>
             </View>
           ))}
         </View>
-        <View style={styles.section}>
-          <Text style={styles.heading}>Awards</Text>
-          <View>
-            {resumeData.awards.map((award, index) => (
-              <Text
-                style={styles.awards}
-                key={index}>
-                {award}
-              </Text>
-            ))}
-          </View>
-        </View>
+        {
+          resumeData.awards.length > 0 && (
+            <View style={styles.section}>
+              <Text style={styles.h2}>Awards</Text>
+              <View>
+                {resumeData.awards.map((award, index) => (
+                  <Text
+                    style={styles.text}
+                    key={index}>
+                    {award}
+                  </Text>
+                ))}
+              </View>
+            </View>
+          )
+        }
       </Page>
     </Document>
   )
