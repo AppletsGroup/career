@@ -1,4 +1,5 @@
 export default function Awards({ awards }: { awards: string[] }) {
+  if (!awards.length) return <></>
   return (
     <div className="mb-8">
       <h2 className="text-xl font-bold mb-4 dark:text-white">Awards and Honors</h2>

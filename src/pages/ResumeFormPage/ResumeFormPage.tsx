@@ -94,78 +94,81 @@ const ResumeFormPage = () => {
   }
 
   return (
-    <div className="bg-white dark:bg-gray-900">
-      <FormTabs />
-      <form
-        onSubmit={handleSubmit}
-        className="p-2">
-        <div className="mb-4">
-          <Label
-            htmlFor="name">
-            Name
-          </Label>
-          <Input
-            id="name"
-            value={name}
-            onChange={(event) => { setName(event.target.value) }} />
-        </div>
-        <div className="mb-4">
-          <Label
-            htmlFor="title">
-            Title
-          </Label>
-          <Input
-            id="title"
-            value={title}
-            onChange={(event) => { setTitle(event.target.value) }} />
-        </div>
-        <div className="mb-4">
-          <Label
-            htmlFor="summary">
-            Summary
-          </Label>
-          <TextArea
-            id="summary"
-            rows={4}
-            value={summary}
-            onChange={(event) => { setSummary(event.target.value) }}
+    <div className="bg-white dark:bg-gray-900 ">
+      <div className="max-w-2xl mx-auto">
+        <FormTabs />
+        <form
+          onSubmit={handleSubmit}
+          className="p-2">
+          <div className="mb-4">
+            <Label
+              htmlFor="name">
+              Name
+            </Label>
+            <Input
+              id="name"
+              value={name}
+              onChange={(event) => { setName(event.target.value) }} />
+          </div>
+          <div className="mb-4">
+            <Label
+              htmlFor="title">
+              Title
+            </Label>
+            <Input
+              id="title"
+              value={title}
+              onChange={(event) => { setTitle(event.target.value) }} />
+          </div>
+          <div className="mb-4">
+            <Label
+              htmlFor="summary">
+              Summary
+            </Label>
+            <TextArea
+              id="summary"
+              rows={4}
+              value={summary}
+              onChange={(event) => { setSummary(event.target.value) }}
           />
-        </div>
+          </div>
 
-        <WorkExperiencesForm
-          onChange={setWorkExperiences}
-          workExperiences={workExperiences}
+          <SkillsForm
+            onChange={setSkills}
+            skills={skills}
         />
 
-        <EducationForm
-          onChange={setEducation}
-          education={education}
+          <WorkExperiencesForm
+            onChange={setWorkExperiences}
+            workExperiences={workExperiences}
         />
 
-        <SkillsForm
-          onChange={setSkills}
-          skills={skills}
+          <EducationForm
+            onChange={setEducation}
+            education={education}
         />
 
-        <LicencesForm
-          onChange={setLicences}
-          licences={licences}
+          <LicencesForm
+            onChange={setLicences}
+            licences={licences}
         />
 
-        <AwardsForm
-          onChange={setAwards}
-          awards={awards}
+          <AwardsForm
+            onChange={setAwards}
+            awards={awards}
         />
 
-        <div className="text-center">
-          <button
-            type="submit"
-            className="bg-green-500 dark:bg-green-700 hover:bg-green-700 dark:hover:bg-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-4"
+          <div className="text-center">
+            <button
+              type="submit"
+              className="bg-green-500 dark:bg-green-700 hover:bg-green-700 dark:hover:bg-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-4"
           >
-            Save
-          </button>
-        </div>
-      </form>
+              Save
+            </button>
+          </div>
+        </form>
+
+      </div>
     </div>
   )
 }
