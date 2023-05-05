@@ -21,23 +21,6 @@ export default function ContactDetail({ contact }: { contact: Contact }) {
             {contact?.email}
           </a>
         </div>
-        <div className="mb-2 text-gray-600 dark:text-gray-400">
-          <span className="mr-2">Address:</span>
-          <span>
-            {contact?.address.street}
-            ,
-            {' '}
-            {contact?.address.city}
-            ,
-            {' '}
-            {contact?.address.state}
-            {' '}
-            {contact?.address.zip}
-            ,
-            {' '}
-            {contact?.address.country}
-          </span>
-        </div>
         {contact?.website && (
           <div className="mb-2 text-gray-600 dark:text-gray-400">
             <span className="mr-2">Website:</span>
@@ -49,22 +32,6 @@ export default function ContactDetail({ contact }: { contact: Contact }) {
             >
               {contact.website}
             </a>
-          </div>
-        )}
-        {contact?.socialMedia && (
-          <div className="text-gray-600 dark:text-gray-400">
-            <span className="mr-2">Social Media:</span>
-            {Object.entries(contact.socialMedia).map(([platform, url]) => (
-              <a
-                key={platform}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mr-2 text-blue-500 dark:text-blue-400"
-              >
-                {platform}
-              </a>
-            ))}
           </div>
         )}
       </div>
