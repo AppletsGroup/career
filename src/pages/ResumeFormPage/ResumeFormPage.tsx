@@ -10,7 +10,9 @@ import FormTabs from './components/FormTabs'
 import LicencesForm from './components/LicencesForm'
 import SkillsForm from './components/SkillsForm'
 import WorkExperiencesForm from './components/WorkExperiencesForm'
-import { Input, Label, TextArea } from 'applet-design'
+import { Form, Input, Label, TextArea } from 'applet-design'
+import ContactForm from './components/ContactForm'
+import { useForm } from 'react-hook-form'
 
 const ResumeFormPage = () => {
   const [name, setName] = useState<string>('')
@@ -26,6 +28,8 @@ const ResumeFormPage = () => {
   const applet = useApplet()
   const resumeId = Number(id)
 
+  const formMethods = useForm()
+
   useEffect(() => {
     const loadPost = async () => {
       const res = await getPost(resumeId)
@@ -39,6 +43,7 @@ const ResumeFormPage = () => {
         setLicences(resumeStore.licences ?? [])
         setAwards(resumeStore.awards)
         setName(resumeStore.name ?? '')
+        formMethods.setValue('contact', resumeStore.contact ?? {})
       }
     }
 
@@ -47,16 +52,15 @@ const ResumeFormPage = () => {
     }
   }, [resumeId])
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-
+  const handleSubmit = async (data: any) => {
     const newResumeStore = {
       workExperiences,
       education,
       skills,
       licences,
       awards,
-      name
+      name,
+      contact: data.contact
     }
 
     if (resumeId > 0) {
@@ -97,9 +101,11 @@ const ResumeFormPage = () => {
     <div className="bg-white dark:bg-gray-900 ">
       <div className="max-w-2xl mx-auto">
         <FormTabs />
-        <form
+        <Form
           onSubmit={handleSubmit}
+          formMethods={formMethods}
           className="p-2">
+
           <div className="mb-4">
             <Label
               htmlFor="name">
@@ -129,45 +135,39 @@ const ResumeFormPage = () => {
               id="summary"
               rows={4}
               value={summary}
-              onChange={(event) => { setSummary(event.target.value) }}
-          />
+              onChange={(event) => { setSummary(event.target.value) }} />
           </div>
+
+          <ContactForm />
 
           <SkillsForm
             onChange={setSkills}
-            skills={skills}
-        />
+            skills={skills} />
 
           <WorkExperiencesForm
             onChange={setWorkExperiences}
-            workExperiences={workExperiences}
-        />
+            workExperiences={workExperiences} />
 
           <EducationForm
             onChange={setEducation}
-            education={education}
-        />
+            education={education} />
 
           <LicencesForm
             onChange={setLicences}
-            licences={licences}
-        />
+            licences={licences} />
 
           <AwardsForm
             onChange={setAwards}
-            awards={awards}
-        />
+            awards={awards} />
 
           <div className="text-center">
             <button
               type="submit"
-              className="bg-green-500 dark:bg-green-700 hover:bg-green-700 dark:hover:bg-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-4"
-          >
+              className="bg-green-500 dark:bg-green-700 hover:bg-green-700 dark:hover:bg-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-4">
               Save
             </button>
           </div>
-        </form>
-
+        </Form>
       </div>
     </div>
   )

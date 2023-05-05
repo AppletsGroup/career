@@ -8,9 +8,10 @@ export default function FormTabs() {
   }
 
   const tabs = [
+    { id: 'contact', label: 'Contact' },
+    { id: 'skills', label: 'Skills' },
     { id: 'work-experiences', label: 'Work Experiences' },
     { id: 'education', label: 'Education' },
-    { id: 'skills', label: 'Skills' },
     { id: 'licences', label: 'Licences' },
     { id: 'awards', label: 'Awards' }
   ]

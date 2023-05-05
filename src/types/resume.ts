@@ -36,7 +36,7 @@ export interface Education {
 export interface Contact {
   phone: string // The phone number of the person
   email: string // The email address of the person
-  address: {
+  address?: {
     street: string // The street address of the person
     city: string // The city of the person
     state: string // The state or province of the person
