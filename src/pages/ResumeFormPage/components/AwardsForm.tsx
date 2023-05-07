@@ -1,4 +1,4 @@
-import { Input, Label } from 'applet-design'
+import { Heading, Input } from 'applet-design'
 
 interface AwardsFormProps {
   onChange: (licenses: string[]) => void
@@ -10,10 +10,9 @@ export default function AwardsForm({ onChange, awards }: AwardsFormProps) {
     <div
       id="awards"
       className="mb-8">
-      <Label
-        htmlFor="awards">
+      <Heading level={3}>
         Awards
-      </Label>
+      </Heading>
       {awards.map((award, index) => (
         <div
           key={index}

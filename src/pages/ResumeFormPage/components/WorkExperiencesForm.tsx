@@ -1,4 +1,4 @@
-import { Input, Label, TextArea } from 'applet-design'
+import { Heading, Input, Label, TextArea } from 'applet-design'
 import { type WorkExperience } from '../../../types/resume'
 
 interface WorkExperiencesFormProps {
@@ -11,7 +11,7 @@ export default function WorkExperiencesForm({ workExperiences, onChange }: WorkE
     <div
       className="mb-4 "
       id="work-experiences">
-      <Label>Work Experiences</Label>
+      <Heading level={3}>Work Experiences</Heading>
       {workExperiences.map((experience, index) => (
         <div
           key={index}

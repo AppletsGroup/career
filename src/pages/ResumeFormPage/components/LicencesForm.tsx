@@ -1,4 +1,4 @@
-import { Input, Label } from 'applet-design'
+import { Heading, Input, Label } from 'applet-design'
 import { type Licence } from '../../../types/resume'
 
 interface LicencesFormProps {
@@ -12,10 +12,9 @@ export default function LicencesForm({ onChange, licences }: LicencesFormProps):
       className="mb-4"
       id="licences">
       {/* Licenses */}
-      <Label
-        htmlFor="licenses">
+      <Heading level={3}>
         Licenses
-      </Label>
+      </Heading>
       {licences.map((licence, index) => (
         <div
           key={index}

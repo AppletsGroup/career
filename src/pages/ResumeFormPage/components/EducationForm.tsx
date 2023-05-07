@@ -1,4 +1,4 @@
-import { Input, Label } from 'applet-design'
+import { Heading, Input, Label } from 'applet-design'
 import { type Education } from '../../../types/resume'
 
 interface EducationFormProps {
@@ -11,7 +11,7 @@ export default function EducationForm({ education, onChange }: EducationFormProp
     <div
       className="mb-4"
       id="education">
-      <Label>Education</Label>
+      <Heading level={3}>Education</Heading>
       {education.map((edu, index) => (
         <div
           key={index}

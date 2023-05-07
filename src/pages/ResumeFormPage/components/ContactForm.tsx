@@ -1,11 +1,11 @@
-import { FieldError, InputField, Label } from 'applet-design'
+import { FieldError, Heading, InputField, Label } from 'applet-design'
 
 export default function ContactForm () {
   return (
     <div
-      className="dark:bg-gray-900 rounded-lg pt-6 pb-8 mb-4"
+      className="dark:bg-gray-900 rounded-lg mb-4"
       id="contact">
-      <h2 className="text-xl dark:text-white mb-6">Contact Form</h2>
+      <Heading level={3}>Contact Form</Heading>
       <div className="mb-6">
         <Label htmlFor="phone">
           Phone

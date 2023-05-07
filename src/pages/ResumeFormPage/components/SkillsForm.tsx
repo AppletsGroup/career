@@ -1,4 +1,4 @@
-import { Input, Label } from 'applet-design'
+import { Heading, Input } from 'applet-design'
 
 interface SkillsFormProps {
   skills: string[]
@@ -10,10 +10,9 @@ export default function SkillsForm({ skills, onChange }: SkillsFormProps) {
     <div
       className="mb-4"
       id="skills">
-      <Label
-        htmlFor="skills">
+      <Heading level={3}>
         Skills
-      </Label>
+      </Heading>
       {skills.map((skill, index) => (
         <div
           key={index}

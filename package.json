@@ -14,7 +14,7 @@
   "dependencies": {
     "@react-pdf/renderer": "^3.1.9",
     "applet-apis": "^0.0.13",
-    "applet-design": "^0.0.27",
+    "applet-design": "^0.0.30",
     "applet-design-utility": "^0.0.6",
     "applet-shell": "^0.0.21",
     "applet-store": "^0.0.10",
